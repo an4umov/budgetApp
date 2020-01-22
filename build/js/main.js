@@ -31,12 +31,12 @@ let money, time;
 
 
 startBtn.addEventListener('click', function() {
-    time = prompt('Введите дату в формате YYYY-MM-DD', '');
-    money = +prompt("Ваш бюджет на месяц?", "");
+    time = prompt('Enter date in format YYYY MM DD', '');
+    money = +prompt("Your monthly budget?", "");
 
 
     while (isNaN(money) || money == "" || money == null) {
-        money = +prompt("Ваш бюджет на месяц?", "");
+        money = +prompt("Your monthly budget?", "");
     }
     appData.budget = money;
     appData.timeData = time;
@@ -80,17 +80,17 @@ countBtn.addEventListener('click', function() {
         appData.moneyPerDay = (appData.budget / 30).toFixed();
         dayBudgetValue.textContent = appData.moneyPerDay;
     
-        if(appData.moneyPerDay < 100) {
-            levelValue.textContent = "Минимальный уровень достатка";
-        } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
-            levelValue.textContent = "Средний уровень достатка";
+        if(appData.moneyPerDay < 500) {
+            levelValue.textContent = "A minimum level of wealth";
+        } else if (appData.moneyPerDay > 500 && appData.moneyPerDay < 2000) {
+            levelValue.textContent = "An average level of wealth";
         }else if (appData.moneyPerDay > 2000) {
-            levelValue.textContent = "Высокий уровень достатка";
+            levelValue.textContent = "A high level of wealth";
         } else {
-            levelValue.textContent = "Что-то пошло не так..";
+            levelValue.textContent = "Something went wrong..";
         }
     } else {
-        dayBudgetValue.textContent = " Ошибка "
+        dayBudgetValue.textContent = " Error! Pls enter monthly budget (click 'Start calculation') "
     }
 });
 
